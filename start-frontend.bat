@@ -10,3 +10,4 @@ if not exist node_modules (
 echo Starting React dev server on http://localhost:3000...
 npx yarn start || npm start
 pause
+
