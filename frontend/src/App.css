@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* File input styling */
+input[type="file"]::file-selector-button {
+  border: none;
+  background: #059669;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 16px;
+  transition: background-color 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #047857;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Security-focused design elements */
+.security-grid {
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(16, 185, 129, 0.05) 2px, transparent 0),
+    radial-gradient(circle at 75px 75px, rgba(16, 185, 129, 0.05) 2px, transparent 0);
+  background-size: 100px 100px;
+}
+
+.glass-effect {
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+/* Button hover effects */
+.btn-security {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-security::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(16, 185, 129, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-security:hover::before {
+  left: 100%;
+}
+
+/* Progress bar custom styling */
+.progress-secure {
+  background: linear-gradient(
+    90deg,
+    #059669 0%,
+    #10b981 50%,
+    #34d399 100%
+  );
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+/* File upload drop zone */
+.upload-zone {
+  border: 2px dashed #475569;
+  transition: all 0.3s ease;
+}
+
+.upload-zone:hover,
+.upload-zone.drag-over {
+  border-color: #059669;
+  background-color: rgba(16, 185, 129, 0.05);
+}
+
+/* Trust indicators */
+.trust-indicator {
+  position: relative;
+}
+
+.trust-indicator::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    #059669,
+    #10b981,
+    #34d399,
+    #059669
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: trustGlow 3s ease-in-out infinite;
+}
+
+@keyframes trustGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .text-6xl {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem;
+  }
+  
+  /* Better touch targets for mobile */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Mobile download improvements */
+  .mobile-download-zone {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Loading states */
+.loading-dots {
+  display: inline-flex;
+  align-items: center;
+}
+
+.loading-dots::after {
+  content: '.';
+  animation: loadingDots 1.5s infinite;
+}
+
+@keyframes loadingDots {
+  0%, 20% {
+    color: transparent;
+    text-shadow: 0.25em 0 0 transparent, 0.5em 0 0 transparent;
+  }
+  40% {
+    color: #ffffff;
+    text-shadow: 0.25em 0 0 transparent, 0.5em 0 0 transparent;
+  }
+  60% {
+    text-shadow: 0.25em 0 0 #ffffff, 0.5em 0 0 transparent;
+  }
+  80%, 100% {
+    text-shadow: 0.25em 0 0 #ffffff, 0.5em 0 0 #ffffff;
+  }
+}
+
+/* Focus states for accessibility */
+.focus\:ring-security:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: rgba(16, 185, 129, 0.5);
+  ring-offset: 2px;
+  ring-offset-color: #0f172a;
+}
+
+/* Error states */
+.error-shake {
+  animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Success states */
+.success-pulse {
+  animation: successPulse 1s ease-in-out;
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Encryption visualization */
+.encryption-visual {
+  background: linear-gradient(
+    45deg,
+    rgba(16, 185, 129, 0.1) 0%,
+    rgba(6, 78, 59, 0.1) 50%,
+    rgba(16, 185, 129, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: encryptionFlow 4s ease-in-out infinite;
+}
+
+@keyframes encryptionFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

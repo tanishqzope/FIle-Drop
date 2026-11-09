@@ -1,0 +1,10 @@
+{
+  "short_name": "FileDrop",
+  "name": "FileDrop - Zero Trust Secure File Sharing",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a"
+}
+
